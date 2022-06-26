@@ -14,6 +14,10 @@
 		C6E99C2B28678BE300B06811 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6E99C2A28678BE300B06811 /* Assets.xcassets */; };
 		C6E99C2E28678BE300B06811 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E99C2C28678BE300B06811 /* LaunchScreen.storyboard */; };
 		C6E99C3828689B0300B06811 /* CompController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C3728689B0300B06811 /* CompController.swift */; };
+		C6E99C3D2868D32600B06811 /* aboutUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C3C2868D32600B06811 /* aboutUser.swift */; };
+		C6E99C3F2868D3F700B06811 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C3E2868D3F700B06811 /* userData.swift */; };
+		C6E99C412868E3CD00B06811 /* aboutContest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C402868E3CC00B06811 /* aboutContest.swift */; };
+		C6E99C442868E3DF00B06811 /* contestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C432868E3DF00B06811 /* contestData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		C6E99C2D28678BE300B06811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6E99C2F28678BE300B06811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6E99C3728689B0300B06811 /* CompController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompController.swift; sourceTree = "<group>"; };
+		C6E99C3C2868D32600B06811 /* aboutUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutUser.swift; sourceTree = "<group>"; };
+		C6E99C3E2868D3F700B06811 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
+		C6E99C402868E3CC00B06811 /* aboutContest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutContest.swift; sourceTree = "<group>"; };
+		C6E99C432868E3DF00B06811 /* contestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contestData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +68,42 @@
 			children = (
 				C6E99C2128678BE000B06811 /* AppDelegate.swift */,
 				C6E99C2328678BE000B06811 /* SceneDelegate.swift */,
-				C6E99C2528678BE000B06811 /* ViewController.swift */,
-				C6E99C3728689B0300B06811 /* CompController.swift */,
-				C6E99C2728678BE000B06811 /* Main.storyboard */,
+				C6E99C392868D0DB00B06811 /* Model */,
+				C6E99C3B2868D0EA00B06811 /* Controller */,
+				C6E99C3A2868D0E400B06811 /* View */,
 				C6E99C2A28678BE300B06811 /* Assets.xcassets */,
-				C6E99C2C28678BE300B06811 /* LaunchScreen.storyboard */,
 				C6E99C2F28678BE300B06811 /* Info.plist */,
 			);
 			path = "Codeforces Visualizer";
+			sourceTree = "<group>";
+		};
+		C6E99C392868D0DB00B06811 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C6E99C3C2868D32600B06811 /* aboutUser.swift */,
+				C6E99C402868E3CC00B06811 /* aboutContest.swift */,
+				C6E99C3E2868D3F700B06811 /* userData.swift */,
+				C6E99C432868E3DF00B06811 /* contestData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C6E99C3A2868D0E400B06811 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6E99C2728678BE000B06811 /* Main.storyboard */,
+				C6E99C2C28678BE300B06811 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C6E99C3B2868D0EA00B06811 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C6E99C2528678BE000B06811 /* ViewController.swift */,
+				C6E99C3728689B0300B06811 /* CompController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +178,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6E99C2628678BE000B06811 /* ViewController.swift in Sources */,
+				C6E99C3D2868D32600B06811 /* aboutUser.swift in Sources */,
+				C6E99C3F2868D3F700B06811 /* userData.swift in Sources */,
 				C6E99C2228678BE000B06811 /* AppDelegate.swift in Sources */,
 				C6E99C3828689B0300B06811 /* CompController.swift in Sources */,
 				C6E99C2428678BE000B06811 /* SceneDelegate.swift in Sources */,
+				C6E99C442868E3DF00B06811 /* contestData.swift in Sources */,
+				C6E99C412868E3CD00B06811 /* aboutContest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
