@@ -80,7 +80,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="White"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="PXt-Ws-tUf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6Qa-Wl-bbu"/>
                             <constraint firstItem="PXt-Ws-tUf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Bcm-pD-Q3V"/>
@@ -89,7 +89,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Visualize" image="person.fill" catalog="system" selectedImage="person.fill" id="YG7-UY-ykJ">
-                        <color key="badgeColor" name="ButtonColor"/>
+                        <color key="badgeColor" systemColor="systemBackgroundColor"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -103,7 +103,8 @@
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MHv-y0-ISa">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="barTintColor" systemColor="systemBackgroundColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="8Tp-da-jCQ"/>
@@ -200,7 +201,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dbU-rP-w9v"/>
-                        <color key="backgroundColor" name="White"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xDB-eG-PSV" firstAttribute="trailing" secondItem="dbU-rP-w9v" secondAttribute="trailing" id="9WY-4u-ic0"/>
                             <constraint firstItem="xDB-eG-PSV" firstAttribute="top" secondItem="dbU-rP-w9v" secondAttribute="top" id="JXh-hF-eKJ"/>
@@ -209,7 +210,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Visualize" image="person.fill" catalog="system" selectedImage="person.fill" id="qHd-R6-dn7">
-                        <color key="badgeColor" name="ButtonColor"/>
+                        <color key="badgeColor" systemColor="systemBackgroundColor"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbq-Ud-wZ2" sceneMemberID="firstResponder"/>
@@ -223,9 +224,6 @@
         <image name="search-1" width="170.5" height="170.5"/>
         <namedColor name="ButtonColor">
             <color red="0.94117647058823528" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="White">
-            <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
