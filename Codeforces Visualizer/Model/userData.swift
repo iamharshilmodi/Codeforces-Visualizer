@@ -26,5 +26,6 @@ struct userResult: Codable {
     let contribution: Int
     let organization, rank: String
     let maxRating, registrationTimeSeconds: Int
-    let email, maxRank: String
+//    let email: String
+    let maxRank: String
 }

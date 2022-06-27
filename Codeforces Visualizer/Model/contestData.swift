@@ -7,18 +7,25 @@
 
 import Foundation
 
-
-// MARK: - Welcome1
-struct contestData: Codable  {
+// MARK: - ContestData
+struct contestData: Codable {
     let status: String
     let result: [contestResult]
 }
 
 // MARK: - Result
-struct contestResult: Codable  {
+struct contestResult: Codable {
     let contestID: Int
     let contestName: String
     let handle: String
     let rank, ratingUpdateTimeSeconds, oldRating, newRating: Int
+
+    enum CodingKeys: String, CodingKey {
+        case contestID = "contestId"
+        case contestName, handle, rank, ratingUpdateTimeSeconds, oldRating, newRating
+    }
 }
 
+//struct Handle: Codable {
+//    let username : String
+//}

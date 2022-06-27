@@ -18,6 +18,8 @@
 		C6E99C3F2868D3F700B06811 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C3E2868D3F700B06811 /* userData.swift */; };
 		C6E99C412868E3CD00B06811 /* aboutContest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C402868E3CC00B06811 /* aboutContest.swift */; };
 		C6E99C442868E3DF00B06811 /* contestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C432868E3DF00B06811 /* contestData.swift */; };
+		C6E99C462869BAD100B06811 /* problemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C452869BAD100B06811 /* problemData.swift */; };
+		C6E99C482869BD0300B06811 /* aboutProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C472869BD0300B06811 /* aboutProblem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		C6E99C3E2868D3F700B06811 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		C6E99C402868E3CC00B06811 /* aboutContest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutContest.swift; sourceTree = "<group>"; };
 		C6E99C432868E3DF00B06811 /* contestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contestData.swift; sourceTree = "<group>"; };
+		C6E99C452869BAD100B06811 /* problemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = problemData.swift; sourceTree = "<group>"; };
+		C6E99C472869BD0300B06811 /* aboutProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutProblem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +86,10 @@
 			children = (
 				C6E99C3C2868D32600B06811 /* aboutUser.swift */,
 				C6E99C402868E3CC00B06811 /* aboutContest.swift */,
+				C6E99C472869BD0300B06811 /* aboutProblem.swift */,
 				C6E99C3E2868D3F700B06811 /* userData.swift */,
 				C6E99C432868E3DF00B06811 /* contestData.swift */,
+				C6E99C452869BAD100B06811 /* problemData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,7 +190,9 @@
 				C6E99C3828689B0300B06811 /* CompController.swift in Sources */,
 				C6E99C2428678BE000B06811 /* SceneDelegate.swift in Sources */,
 				C6E99C442868E3DF00B06811 /* contestData.swift in Sources */,
+				C6E99C462869BAD100B06811 /* problemData.swift in Sources */,
 				C6E99C412868E3CD00B06811 /* aboutContest.swift in Sources */,
+				C6E99C482869BD0300B06811 /* aboutProblem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var usernameOutlet: UITextField!
     var abtuser = aboutUser()
+    var abtcontest = aboutContest()
+    var abtproblem = aboutProblem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +45,10 @@ extension ViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         if let uname = usernameOutlet.text {
+            abtcontest.fetchData(uname)
             abtuser.fetchData(uname)
+            abtproblem.fetchData(uname)
+            
         }
         
         usernameOutlet.text = ""
