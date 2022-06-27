@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hxV-s3-Zzp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aab-lX-wYU">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Visualize-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Codeforces_Visualizer" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PXt-Ws-tUf">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hkP-br-UC7" userLabel="SearchIcon">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="384.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="387"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NR9-3h-dWn">
-                                                <rect key="frame" x="122" y="107" width="170.5" height="170.5"/>
+                                                <rect key="frame" x="122" y="108.5" width="170.5" height="170.5"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -33,17 +33,17 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dPp-xK-bH2">
-                                        <rect key="frame" x="0.0" y="384.5" width="414" height="384.5"/>
+                                        <rect key="frame" x="0.0" y="387" width="414" height="387"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ws-VU-Ej5">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="129"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzU-Ux-GYn" userLabel="UsernameField">
-                                                <rect key="frame" x="0.0" y="128" width="414" height="128.5"/>
+                                                <rect key="frame" x="0.0" y="129" width="414" height="129"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBJ-Xq-i3X">
-                                                        <rect key="frame" x="125" y="39" width="164" height="50.5"/>
+                                                        <rect key="frame" x="125" y="39.5" width="164" height="50.5"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="30"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -55,10 +55,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YcC-7y-7qe" userLabel="SearchButtom">
-                                                <rect key="frame" x="0.0" y="256.5" width="414" height="128"/>
+                                                <rect key="frame" x="0.0" y="258" width="414" height="129"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTC-Aq-UVe">
-                                                        <rect key="frame" x="148.5" y="36.5" width="117" height="55"/>
+                                                        <rect key="frame" x="148.5" y="37" width="117" height="55"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Search">
@@ -90,137 +90,65 @@
                             <constraint firstItem="PXt-Ws-tUf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qrX-Hi-WgN"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Visualize" image="person.fill" catalog="system" selectedImage="person.fill" id="YG7-UY-ykJ">
-                        <color key="badgeColor" systemColor="systemBackgroundColor"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="9xL-iY-vuX"/>
                     <connections>
                         <outlet property="usernameOutlet" destination="VBJ-Xq-i3X" id="dM4-2R-dRf"/>
+                        <segue destination="PtU-6O-4x1" kind="show" identifier="visRes" id="l54-sW-Mrv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-275.36231884057975" y="780.80357142857144"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="73I-80-8CY">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hxV-s3-Zzp" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MHv-y0-ISa">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="barTintColor" systemColor="systemBackgroundColor"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="8Tp-da-jCQ"/>
-                        <segue destination="KrM-zz-yxn" kind="relationship" relationship="viewControllers" id="oJa-kh-oKq"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ir7-n2-ize" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="151" y="91"/>
+            <point key="canvasLocation" x="634.78260869565224" y="780.80357142857144"/>
         </scene>
         <!--Visualize-->
-        <scene sceneID="hOR-Ra-CHC">
+        <scene sceneID="BjJ-yK-pnB">
             <objects>
-                <viewController id="KrM-zz-yxn" customClass="CompController" customModule="Codeforces_Visualizer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="R3B-j2-hfg">
+                <viewController id="PtU-6O-4x1" customClass="visResController" customModule="Codeforces_Visualizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qdH-oW-e4s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xDB-eG-PSV">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FeC-9S-crg" userLabel="SearchIcon">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="384.5"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cmpr" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ya-pA-MC7">
-                                                <rect key="frame" x="122" y="107" width="170.5" height="170.5"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="3ya-pA-MC7" firstAttribute="centerY" secondItem="FeC-9S-crg" secondAttribute="centerY" id="eHz-a7-6yJ"/>
-                                            <constraint firstItem="3ya-pA-MC7" firstAttribute="centerX" secondItem="FeC-9S-crg" secondAttribute="centerX" id="hyk-lL-I4X"/>
-                                        </constraints>
-                                    </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nlT-ZM-fna">
-                                        <rect key="frame" x="0.0" y="384.5" width="414" height="384.5"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1T-eI-bRd">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username 1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1G-5C-Tet" userLabel="username_1">
-                                                        <rect key="frame" x="112.5" y="39" width="189" height="50.5"/>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="30"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="B1G-5C-Tet" firstAttribute="centerX" secondItem="L1T-eI-bRd" secondAttribute="centerX" id="2wY-lb-HRH"/>
-                                                    <constraint firstItem="B1G-5C-Tet" firstAttribute="centerY" secondItem="L1T-eI-bRd" secondAttribute="centerY" id="Ml8-oL-fzG"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="966-8j-h8r" userLabel="UsernameField">
-                                                <rect key="frame" x="0.0" y="128" width="414" height="128.5"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username 2" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sdq-vm-IZB" userLabel="username_2">
-                                                        <rect key="frame" x="112.5" y="39" width="189" height="50.5"/>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="30"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="Sdq-vm-IZB" firstAttribute="centerX" secondItem="966-8j-h8r" secondAttribute="centerX" id="Ko6-XU-V1O"/>
-                                                    <constraint firstItem="Sdq-vm-IZB" firstAttribute="centerY" secondItem="966-8j-h8r" secondAttribute="centerY" id="tUb-ke-haj"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CR9-cl-FwF" userLabel="SearchButtom">
-                                                <rect key="frame" x="0.0" y="256.5" width="414" height="128"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zax-QS-XPg">
-                                                        <rect key="frame" x="130.5" y="36.5" width="153" height="55"/>
-                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Compare">
-                                                            <fontDescription key="titleFontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="30"/>
-                                                            <color key="baseForegroundColor" name="ButtonColor"/>
-                                                        </buttonConfiguration>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="zax-QS-XPg" firstAttribute="centerX" secondItem="CR9-cl-FwF" secondAttribute="centerX" id="0sA-9Q-Xaw"/>
-                                                    <constraint firstItem="zax-QS-XPg" firstAttribute="centerY" secondItem="CR9-cl-FwF" secondAttribute="centerY" id="8kM-tI-opz"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7ip-O5-2Nx">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="dbU-rP-w9v"/>
+                        <viewLayoutGuide key="safeArea" id="VY1-ov-7Tk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="xDB-eG-PSV" firstAttribute="trailing" secondItem="dbU-rP-w9v" secondAttribute="trailing" id="9WY-4u-ic0"/>
-                            <constraint firstItem="xDB-eG-PSV" firstAttribute="top" secondItem="dbU-rP-w9v" secondAttribute="top" id="JXh-hF-eKJ"/>
-                            <constraint firstItem="xDB-eG-PSV" firstAttribute="bottom" secondItem="dbU-rP-w9v" secondAttribute="bottom" id="X10-kG-vFG"/>
-                            <constraint firstItem="xDB-eG-PSV" firstAttribute="leading" secondItem="dbU-rP-w9v" secondAttribute="leading" id="mJg-zt-oPU"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Visualize" image="person.fill" catalog="system" selectedImage="person.fill" id="qHd-R6-dn7">
+                    <navigationItem key="navigationItem" title="Visualize" id="qL8-d8-8en"/>
+                    <connections>
+                        <outlet property="tableView" destination="7ip-O5-2Nx" id="Of6-Fv-biJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uld-hn-BZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="781"/>
+        </scene>
+        <!--Visualize-->
+        <scene sceneID="ZdO-eJ-agV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Aab-lX-wYU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Visualize" image="person.fill" catalog="system" selectedImage="person.fill" id="YG7-UY-ykJ">
                         <color key="badgeColor" systemColor="systemBackgroundColor"/>
                     </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fbq-Ud-wZ2" sceneMemberID="firstResponder"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rdI-5o-zpM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qlg-dK-NGr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7n6-Kp-QXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="566.66666666666674" y="780.80357142857144"/>
+            <point key="canvasLocation" x="-275.36231884057975" y="780.80357142857144"/>
         </scene>
     </scenes>
     <resources>
-        <image name="cmpr" width="170.5" height="170.5"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="search-1" width="170.5" height="170.5"/>
         <namedColor name="ButtonColor">

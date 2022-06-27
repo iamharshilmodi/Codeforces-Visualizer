@@ -48,7 +48,7 @@ extension ViewController: UITextFieldDelegate {
             abtcontest.fetchData(uname)
             abtuser.fetchData(uname)
             abtproblem.fetchData(uname)
-            
+            self.performSegue(withIdentifier: "visRes", sender: self)
         }
         
         usernameOutlet.text = ""

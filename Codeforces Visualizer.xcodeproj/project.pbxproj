@@ -7,22 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		294653197B13EF85C28B2013 /* Pods_Codeforces_Visualizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA06B9D12088A51477ED5FE /* Pods_Codeforces_Visualizer.framework */; };
 		C6E99C2228678BE000B06811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C2128678BE000B06811 /* AppDelegate.swift */; };
 		C6E99C2428678BE000B06811 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C2328678BE000B06811 /* SceneDelegate.swift */; };
 		C6E99C2628678BE000B06811 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C2528678BE000B06811 /* ViewController.swift */; };
 		C6E99C2928678BE000B06811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E99C2728678BE000B06811 /* Main.storyboard */; };
 		C6E99C2B28678BE300B06811 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6E99C2A28678BE300B06811 /* Assets.xcassets */; };
 		C6E99C2E28678BE300B06811 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E99C2C28678BE300B06811 /* LaunchScreen.storyboard */; };
-		C6E99C3828689B0300B06811 /* CompController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C3728689B0300B06811 /* CompController.swift */; };
 		C6E99C3D2868D32600B06811 /* aboutUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C3C2868D32600B06811 /* aboutUser.swift */; };
 		C6E99C3F2868D3F700B06811 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C3E2868D3F700B06811 /* userData.swift */; };
 		C6E99C412868E3CD00B06811 /* aboutContest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C402868E3CC00B06811 /* aboutContest.swift */; };
 		C6E99C442868E3DF00B06811 /* contestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C432868E3DF00B06811 /* contestData.swift */; };
 		C6E99C462869BAD100B06811 /* problemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C452869BAD100B06811 /* problemData.swift */; };
 		C6E99C482869BD0300B06811 /* aboutProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C472869BD0300B06811 /* aboutProblem.swift */; };
+		C6E99C4C2869EF0900B06811 /* visResController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C4B2869EF0900B06811 /* visResController.swift */; };
+		C6E99C51286A248600B06811 /* profileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C4F286A248600B06811 /* profileViewCell.swift */; };
+		C6E99C52286A248600B06811 /* profileViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6E99C50286A248600B06811 /* profileViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A64E447A117C4CC432FD0578 /* Pods-Codeforces Visualizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Codeforces Visualizer.release.xcconfig"; path = "Target Support Files/Pods-Codeforces Visualizer/Pods-Codeforces Visualizer.release.xcconfig"; sourceTree = "<group>"; };
 		C6E99C1E28678BE000B06811 /* Codeforces Visualizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codeforces Visualizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E99C2128678BE000B06811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6E99C2328678BE000B06811 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,13 +35,17 @@
 		C6E99C2A28678BE300B06811 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6E99C2D28678BE300B06811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6E99C2F28678BE300B06811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C6E99C3728689B0300B06811 /* CompController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompController.swift; sourceTree = "<group>"; };
 		C6E99C3C2868D32600B06811 /* aboutUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutUser.swift; sourceTree = "<group>"; };
 		C6E99C3E2868D3F700B06811 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		C6E99C402868E3CC00B06811 /* aboutContest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutContest.swift; sourceTree = "<group>"; };
 		C6E99C432868E3DF00B06811 /* contestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contestData.swift; sourceTree = "<group>"; };
 		C6E99C452869BAD100B06811 /* problemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = problemData.swift; sourceTree = "<group>"; };
 		C6E99C472869BD0300B06811 /* aboutProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutProblem.swift; sourceTree = "<group>"; };
+		C6E99C4B2869EF0900B06811 /* visResController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visResController.swift; sourceTree = "<group>"; };
+		C6E99C4F286A248600B06811 /* profileViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewCell.swift; sourceTree = "<group>"; };
+		C6E99C50286A248600B06811 /* profileViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = profileViewCell.xib; sourceTree = "<group>"; };
+		CDA06B9D12088A51477ED5FE /* Pods_Codeforces_Visualizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Codeforces_Visualizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3DE0AC353AB9350FCF8282A /* Pods-Codeforces Visualizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Codeforces Visualizer.debug.xcconfig"; path = "Target Support Files/Pods-Codeforces Visualizer/Pods-Codeforces Visualizer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				294653197B13EF85C28B2013 /* Pods_Codeforces_Visualizer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +65,8 @@
 			children = (
 				C6E99C2028678BE000B06811 /* Codeforces Visualizer */,
 				C6E99C1F28678BE000B06811 /* Products */,
+				FDB3A7DF774676B92EA8CF4C /* Pods */,
+				EE8656B3D773B244D8FB23E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +110,8 @@
 			children = (
 				C6E99C2728678BE000B06811 /* Main.storyboard */,
 				C6E99C2C28678BE300B06811 /* LaunchScreen.storyboard */,
+				C6E99C4F286A248600B06811 /* profileViewCell.swift */,
+				C6E99C50286A248600B06811 /* profileViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,9 +120,26 @@
 			isa = PBXGroup;
 			children = (
 				C6E99C2528678BE000B06811 /* ViewController.swift */,
-				C6E99C3728689B0300B06811 /* CompController.swift */,
+				C6E99C4B2869EF0900B06811 /* visResController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		EE8656B3D773B244D8FB23E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDA06B9D12088A51477ED5FE /* Pods_Codeforces_Visualizer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDB3A7DF774676B92EA8CF4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D3DE0AC353AB9350FCF8282A /* Pods-Codeforces Visualizer.debug.xcconfig */,
+				A64E447A117C4CC432FD0578 /* Pods-Codeforces Visualizer.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,9 +149,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6E99C3228678BE300B06811 /* Build configuration list for PBXNativeTarget "Codeforces Visualizer" */;
 			buildPhases = (
+				9BBDE7F9B1F1565569707012 /* [CP] Check Pods Manifest.lock */,
 				C6E99C1A28678BE000B06811 /* Sources */,
 				C6E99C1B28678BE000B06811 /* Frameworks */,
 				C6E99C1C28678BE000B06811 /* Resources */,
+				51CDDEC7CBA6BECD920B1DC4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6E99C52286A248600B06811 /* profileViewCell.xib in Resources */,
 				C6E99C2E28678BE300B06811 /* LaunchScreen.storyboard in Resources */,
 				C6E99C2B28678BE300B06811 /* Assets.xcassets in Resources */,
 				C6E99C2928678BE000B06811 /* Main.storyboard in Resources */,
@@ -177,6 +210,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		51CDDEC7CBA6BECD920B1DC4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Codeforces Visualizer/Pods-Codeforces Visualizer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Codeforces Visualizer/Pods-Codeforces Visualizer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Codeforces Visualizer/Pods-Codeforces Visualizer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BBDE7F9B1F1565569707012 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Codeforces Visualizer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C6E99C1A28678BE000B06811 /* Sources */ = {
@@ -187,7 +262,8 @@
 				C6E99C3D2868D32600B06811 /* aboutUser.swift in Sources */,
 				C6E99C3F2868D3F700B06811 /* userData.swift in Sources */,
 				C6E99C2228678BE000B06811 /* AppDelegate.swift in Sources */,
-				C6E99C3828689B0300B06811 /* CompController.swift in Sources */,
+				C6E99C4C2869EF0900B06811 /* visResController.swift in Sources */,
+				C6E99C51286A248600B06811 /* profileViewCell.swift in Sources */,
 				C6E99C2428678BE000B06811 /* SceneDelegate.swift in Sources */,
 				C6E99C442868E3DF00B06811 /* contestData.swift in Sources */,
 				C6E99C462869BAD100B06811 /* problemData.swift in Sources */,
@@ -334,6 +410,7 @@
 		};
 		C6E99C3328678BE300B06811 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3DE0AC353AB9350FCF8282A /* Pods-Codeforces Visualizer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -363,6 +440,7 @@
 		};
 		C6E99C3428678BE300B06811 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A64E447A117C4CC432FD0578 /* Pods-Codeforces Visualizer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

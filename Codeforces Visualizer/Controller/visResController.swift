@@ -1,19 +1,22 @@
 //
-//  CompController.swift
+//  visResController.swift
 //  Codeforces Visualizer
 //
-//  Created by Harshil Modi on 26/06/22.
+//  Created by Harshil Modi on 27/06/22.
 //
 
 import UIKit
 
-class CompController: UIViewController {
-    
+class visResController: UIViewController{
+
+
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "profileViewCell", bundle: nil), forCellReuseIdentifier: "profileCell")
         // Do any additional setup after loading the view.
     }
     
