@@ -41,7 +41,9 @@ struct aboutUser {
 //                        let xyz = String(data: udata, encoding: .utf8)
 //                        print("---------------------------------")
 //                        print(udata)
-                        self.delegate?.didUpdateData(self, userdata: udata)
+//                        DispatchQueue.main.async {
+                            self.delegate?.didUpdateData(self, userdata: udata)
+//                        }
                     }
                 }
             }

@@ -9,14 +9,14 @@ import Foundation
 
 struct profileData {
     
-    var currentRank: String
-    var maxRank: String
+    var currentRank: String = "specialist"
+    var maxRank: String = "expert"
 
-    var currentRating: Int
-    var maxRating: Int
+    var currentRating: Int = 1453
+    var maxRating: Int = 1453
 
-    var username: String
-    var contribution: Int
+    var username: String = "harshilcodes"
+    var contribution: Int = 0
 
-    var dp: String
+    var dp: String = "xyz"
 }

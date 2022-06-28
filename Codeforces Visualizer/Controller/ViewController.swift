@@ -10,21 +10,51 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var usernameOutlet: UITextField!
-    var abtuser = aboutUser()
-    var abtcontest = aboutContest()
-    var abtproblem = aboutProblem()
+//    var abtuser = aboutUser()
+//    var abtcontest = aboutContest()
+//    var abtproblem = aboutProblem()
     
-    var profiledata : profileData?
+//    var prodata = profileData()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        abtuser.delegate = self
+//        abtuser.delegate = self
         usernameOutlet.delegate = self
     }
     
 }
+
+//extension ViewController: aboutUserDelegate {
+//
+//
+//        func didUpdateData(_ aboutuser: aboutUser, userdata: userData) {
+//
+//            DispatchQueue.main.async {
+////        print(userdata)
+//                self.prodata.currentRank = userdata.result[0].rank
+//                self.prodata.maxRank = userdata.result[0].maxRank
+//
+//                self.prodata.currentRating = userdata.result[0].rating
+//                self.prodata.maxRating = userdata.result[0].maxRating
+//
+//                self.prodata.username = userdata.result[0].handle
+//                self.prodata.contribution = userdata.result[0].contribution
+//
+//                self.prodata.dp = userdata.result[0].avatar
+//
+//            }
+////        print(profiledata)
+//
+//    }
+//
+//    func didFailWithError(error: Error) {
+//        print(error)
+//    }
+//
+//
+//}
 
 extension ViewController: UITextFieldDelegate {
     
@@ -49,9 +79,9 @@ extension ViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         if let uname = usernameOutlet.text {
-            abtcontest.fetchData(uname)
-            abtuser.fetchData(uname)
-            abtproblem.fetchData(uname)
+//            abtcontest.fetchData(uname)
+//            abtuser.fetchData(uname)
+//            abtproblem.fetchData(uname)
             self.performSegue(withIdentifier: "visRes", sender: self)
         }
         
@@ -60,37 +90,10 @@ extension ViewController: UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "visRes" {
-            if let destVC = segue.destination as? UINavigationController,
-                let targetController = destVC.topViewController as? visResController {
-                targetController.profiledata = profiledata
-            }
+      if(segue.identifier == "visRes"){
+                let displayVC = segue.destination as! visResController
+                displayVC.username = usernameOutlet.text!
         }
-    }
-}
-
-extension ViewController: aboutUserDelegate {
-    
-    func didUpdateData(_ aboutuser: aboutUser, userdata: userData) {
-        
-        print(userdata)
-        profiledata?.currentRank = userdata.result[0].rank
-        profiledata?.maxRank = userdata.result[0].maxRank
-
-        profiledata?.currentRating = userdata.result[0].rating
-        profiledata?.maxRating = userdata.result[0].maxRating
-
-        profiledata?.username = userdata.result[0].handle
-        profiledata?.contribution = userdata.result[0].contribution
-
-        profiledata?.dp = userdata.result[0].avatar
-        
-//        print(profiledata!)
-        
-    }
-    
-    func didFailWithError(error: Error) {
-        print(error)
     }
 
 }
