@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol aboutUserDelegate {
-    func didUpdateData(_ dataStruct: userData)
+    func didUpdateData(_ aboutuser: aboutUser, userdata: userData)
     func didFailWithError(error: Error)
 }
 
@@ -27,21 +27,21 @@ struct aboutUser {
     
     func performRequest(with urlString: String) {
         if let url = URL(string: urlString) {
-//            let session = URLSession(configuration: .default)
-            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
-                    print("+++++++++++++++++++++++++++++++++")
-                    print(response!)
-                    print("failed")
-//                    self.delegate?.didFailWithError(error: error!)
+//                    print("+++++++++++++++++++++++++++++++++")
+//                    print(response!)
+//                    print("failed")
+                    self.delegate?.didFailWithError(error: error!)
                     return
                 }
                 if let safeData = data {
                     if let udata = self.parseJSON(safeData) {
 //                        let xyz = String(data: udata, encoding: .utf8)
-                        print("---------------------------------")
-                        print(udata)
-//                        self.delegate?.didUpdateData(udata)
+//                        print("---------------------------------")
+//                        print(udata)
+                        self.delegate?.didUpdateData(self, userdata: udata)
                     }
                 }
             }
@@ -58,7 +58,7 @@ struct aboutUser {
             return returnData
             
         } catch {
-//            delegate?.didFailWithError(error: error)
+            delegate?.didFailWithError(error: error)
             return nil
         }
     }

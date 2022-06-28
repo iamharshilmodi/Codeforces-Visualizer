@@ -23,6 +23,7 @@
 		C6E99C4C2869EF0900B06811 /* visResController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C4B2869EF0900B06811 /* visResController.swift */; };
 		C6E99C51286A248600B06811 /* profileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C4F286A248600B06811 /* profileViewCell.swift */; };
 		C6E99C52286A248600B06811 /* profileViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6E99C50286A248600B06811 /* profileViewCell.xib */; };
+		C6E99C54286B7C0F00B06811 /* profileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C53286B7C0F00B06811 /* profileData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		C6E99C4B2869EF0900B06811 /* visResController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visResController.swift; sourceTree = "<group>"; };
 		C6E99C4F286A248600B06811 /* profileViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewCell.swift; sourceTree = "<group>"; };
 		C6E99C50286A248600B06811 /* profileViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = profileViewCell.xib; sourceTree = "<group>"; };
+		C6E99C53286B7C0F00B06811 /* profileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileData.swift; sourceTree = "<group>"; };
 		CDA06B9D12088A51477ED5FE /* Pods_Codeforces_Visualizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Codeforces_Visualizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DE0AC353AB9350FCF8282A /* Pods-Codeforces Visualizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Codeforces Visualizer.debug.xcconfig"; path = "Target Support Files/Pods-Codeforces Visualizer/Pods-Codeforces Visualizer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 				C6E99C3E2868D3F700B06811 /* userData.swift */,
 				C6E99C432868E3DF00B06811 /* contestData.swift */,
 				C6E99C452869BAD100B06811 /* problemData.swift */,
+				C6E99C53286B7C0F00B06811 /* profileData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				C6E99C2628678BE000B06811 /* ViewController.swift in Sources */,
 				C6E99C3D2868D32600B06811 /* aboutUser.swift in Sources */,
 				C6E99C3F2868D3F700B06811 /* userData.swift in Sources */,
+				C6E99C54286B7C0F00B06811 /* profileData.swift in Sources */,
 				C6E99C2228678BE000B06811 /* AppDelegate.swift in Sources */,
 				C6E99C4C2869EF0900B06811 /* visResController.swift in Sources */,
 				C6E99C51286A248600B06811 /* profileViewCell.swift in Sources */,

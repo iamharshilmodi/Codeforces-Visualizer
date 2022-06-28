@@ -12,23 +12,33 @@ class visResController: UIViewController{
 
     @IBOutlet weak var tableView: UITableView!
     
+    var profiledata : profileData?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.register(UINib(nibName: "profileViewCell", bundle: nil), forCellReuseIdentifier: "profileCell")
+        
+//        print(profiledata!)
         // Do any additional setup after loading the view.
     }
+
+}
+
+extension visResController: UITableViewDataSource {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
-    */
-
+    
+   
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as! profileViewCell
+        
+        return cell
+    }
+    
+    
 }

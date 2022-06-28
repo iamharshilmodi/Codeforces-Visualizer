@@ -21,7 +21,7 @@ struct aboutContest {
 
     func fetchData(_ usrName: String) {
         let urlString = "\(aboutURL)=\(usrName)"
-        print(urlString)
+//        print(urlString)
         performRequest(with: urlString)
     }
     
@@ -31,8 +31,8 @@ struct aboutContest {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
-                    print("error")
-                    print(error!)
+//                    print("error")
+//                    print(error!)
 //                    self.delegate?.didFailWithError(error: error!)
                     return
                 }
@@ -41,12 +41,12 @@ struct aboutContest {
 //                    print(xyz)
                     if let cntdata = self.parseJSON(safeData) {
 //                        let xyz = String(data: safeData, encoding: .utf8)
-                        print("+++++++++++++++++++++++++++++++++++")
-                        print(cntdata)
+//                        print("+++++++++++++++++++++++++++++++++++")
+//                        print(cntdata)
 //                        self.delegate?.didUpdateData(udata)
                     }
                     else{
-                        print("errorrrr")
+//                        print("errorrrr")
 //                        delegate?.didFailWithError(error: error)
                     }
                 }

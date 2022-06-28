@@ -14,9 +14,13 @@ class ViewController: UIViewController {
     var abtcontest = aboutContest()
     var abtproblem = aboutProblem()
     
+    var profiledata : profileData?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        abtuser.delegate = self
         usernameOutlet.delegate = self
     }
     
@@ -54,4 +58,41 @@ extension ViewController: UITextFieldDelegate {
         usernameOutlet.text = ""
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "visRes" {
+            if let destVC = segue.destination as? UINavigationController,
+                let targetController = destVC.topViewController as? visResController {
+                targetController.profiledata = profiledata
+            }
+        }
+    }
 }
+
+extension ViewController: aboutUserDelegate {
+    
+    func didUpdateData(_ aboutuser: aboutUser, userdata: userData) {
+        
+        print(userdata)
+        profiledata?.currentRank = userdata.result[0].rank
+        profiledata?.maxRank = userdata.result[0].maxRank
+
+        profiledata?.currentRating = userdata.result[0].rating
+        profiledata?.maxRating = userdata.result[0].maxRating
+
+        profiledata?.username = userdata.result[0].handle
+        profiledata?.contribution = userdata.result[0].contribution
+
+        profiledata?.dp = userdata.result[0].avatar
+        
+//        print(profiledata!)
+        
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+
+}
+
+

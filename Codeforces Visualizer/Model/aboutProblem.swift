@@ -22,7 +22,7 @@ struct aboutProblem {
 
     func fetchData(_ usrName: String) {
         let urlString = "\(aboutURL)=\(usrName)"
-        print(urlString)
+//        print(urlString)
         performRequest(with: urlString)
     }
     
@@ -32,8 +32,8 @@ struct aboutProblem {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
-                    print("error")
-                    print(error!)
+//                    print("error")
+//                    print(error!)
 //                    self.delegate?.didFailWithError(error: error!)
                     return
                 }
@@ -42,8 +42,8 @@ struct aboutProblem {
 //                    print(xyz)
                     if let prbdata = self.parseJSON(safeData) {
 //                        let xyz = String(data: safeData, encoding: .utf8)
-                        print("+++++++++++++++++++++++++++++++++++")
-                        print(prbdata)
+//                        print("+++++++++++++++++++++++++++++++++++")
+//                        print(prbdata)
 //                        self.delegate?.didUpdateData(udata)
                     }
                     else{
