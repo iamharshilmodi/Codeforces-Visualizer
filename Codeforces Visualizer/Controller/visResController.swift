@@ -63,7 +63,9 @@ extension visResController: aboutUserDelegate {
     }
     
     func didFailWithError(error: Error) {
-        print(error)
+        DispatchQueue.main.async {
+            self.username = "User not Found"
+        }
     }
     
     
