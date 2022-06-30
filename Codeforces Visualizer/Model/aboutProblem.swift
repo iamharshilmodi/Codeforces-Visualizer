@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol problemDataDelegate {
-    func didUpdateData(_ dataStruct: problemData)
+    func didUpdateData(_ aboutproblem: aboutProblem, problemdata: problemData)
     func didFailWithError(error: Error)
 }
 
@@ -34,7 +34,7 @@ struct aboutProblem {
                 if error != nil {
 //                    print("error")
 //                    print(error!)
-//                    self.delegate?.didFailWithError(error: error!)
+                    self.delegate?.didFailWithError(error: error!)
                     return
                 }
                 if let safeData = data {
@@ -44,11 +44,7 @@ struct aboutProblem {
 //                        let xyz = String(data: safeData, encoding: .utf8)
 //                        print("+++++++++++++++++++++++++++++++++++")
 //                        print(prbdata)
-//                        self.delegate?.didUpdateData(udata)
-                    }
-                    else{
-//                        print(Erreturn nilror)
-//                        delegate?.didFailWithError(error: error)
+                        self.delegate?.didUpdateData(self, problemdata: prbdata)
                     }
                 }
             }
@@ -65,30 +61,30 @@ struct aboutProblem {
             let returnData = decodedData
             return returnData
             
-        }catch let DecodingError.dataCorrupted(context) {
-            print(context)
-            return nil
-        } catch let DecodingError.keyNotFound(key, context) {
-            print("Key '\(key)' not found:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-            return nil
-        } catch let DecodingError.valueNotFound(value, context) {
-            print("Value '\(value)' not found:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-            return nil
-        } catch let DecodingError.typeMismatch(type, context)  {
-            print("Type '\(type)' mismatch:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-            return nil
-        } catch {
-            print("error: ", error)
-            return nil
-        }
-//        catch {
-//            print(Error)
-////            delegate?.didFailWithError(error: error)
+//        }catch let DecodingError.dataCorrupted(context) {
+//            print(context)
+//            return nil
+//        } catch let DecodingError.keyNotFound(key, context) {
+//            print("Key '\(key)' not found:", context.debugDescription)
+//            print("codingPath:", context.codingPath)
+//            return nil
+//        } catch let DecodingError.valueNotFound(value, context) {
+//            print("Value '\(value)' not found:", context.debugDescription)
+//            print("codingPath:", context.codingPath)
+//            return nil
+//        } catch let DecodingError.typeMismatch(type, context)  {
+//            print("Type '\(type)' mismatch:", context.debugDescription)
+//            print("codingPath:", context.codingPath)
+//            return nil
+//        } catch {
+//            print("error: ", error)
 //            return nil
 //        }
+        }catch {
+//            print(Error)
+            delegate?.didFailWithError(error: error)
+            return nil
+        }
     }
     
     

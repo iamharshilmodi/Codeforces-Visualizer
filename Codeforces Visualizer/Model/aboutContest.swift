@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol contestDataDelegate {
-    func didUpdateData(_ dataStruct: contestData)
+    func didUpdateData(_ aboutcontest: aboutContest, contestdata: contestData)
     func didFailWithError(error: Error)
 }
 
@@ -33,7 +33,7 @@ struct aboutContest {
                 if error != nil {
 //                    print("error")
 //                    print(error!)
-//                    self.delegate?.didFailWithError(error: error!)
+                    self.delegate?.didFailWithError(error: error!)
                     return
                 }
                 if let safeData = data {
@@ -43,11 +43,7 @@ struct aboutContest {
 //                        let xyz = String(data: safeData, encoding: .utf8)
 //                        print("+++++++++++++++++++++++++++++++++++")
 //                        print(cntdata)
-//                        self.delegate?.didUpdateData(udata)
-                    }
-                    else{
-//                        print("errorrrr")
-//                        delegate?.didFailWithError(error: error)
+                        self.delegate?.didUpdateData(self, contestdata : cntdata)
                     }
                 }
             }
@@ -66,7 +62,7 @@ struct aboutContest {
             
         } catch {
 //            print("err")
-//            delegate?.didFailWithError(error: error)
+            delegate?.didFailWithError(error: error)
             return nil
         }
     }
