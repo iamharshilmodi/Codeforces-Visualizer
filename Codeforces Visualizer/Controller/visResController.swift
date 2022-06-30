@@ -6,17 +6,37 @@
 //
 
 import UIKit
+import Charts
 
 class visResController: UIViewController {
+    
+    @IBOutlet weak var dp: UIImageView!
+    @IBOutlet weak var rankName: UILabel!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var currentRating: UILabel!
+    @IBOutlet weak var maxRating: UILabel!
+    @IBOutlet weak var contribution: UILabel!
+    
+    @IBOutlet weak var ratingGraph: LineChartView!
+    var lineChartEntry = [ChartDataEntry]()
+    var months = [String]()
+    
+    @IBOutlet weak var verdictsGraph: PieChartView!
+    
+    @IBOutlet weak var languages: PieChartView!
+    
+    @IBOutlet weak var problemLevels: HorizontalBarChartView!
+    
+    @IBOutlet weak var problemRatings: HorizontalBarChartView!
+    
+    @IBOutlet weak var tags: UITableView!
+    
     
     var abtuser = aboutUser()
     var abtcontest = aboutContest()
     var abtproblem = aboutProblem()
     var username = "username"
-    
-    var prodata = ["rank", "maxRank", "rating", "maxRating", "contribution", "dp"]
-    var cntdate = [Date]()
-    var cntrating = [Int]()
+    var curr_rank = "specialist"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +51,10 @@ class visResController: UIViewController {
         abtcontest.fetchData(username)
         abtproblem.fetchData(username)
         
+        dp.layer.cornerRadius = dp.frame.height / 2
+        dp.clipsToBounds = true
+        ratingGraph.backgroundColor = UIColor(named: "Custom_White")
+        ratingGraph.animate(xAxisDuration: 3)
     }
 
 }
@@ -43,14 +67,27 @@ extension visResController: aboutUserDelegate {
         DispatchQueue.main.async {
         
 //            print(userdata)
-            self.prodata[0] = userdata.result[0].rank
-            self.prodata[1] = userdata.result[0].maxRank
-            self.prodata[2] = String(userdata.result[0].rating)
-            self.prodata[3] = String(userdata.result[0].maxRating)
-            self.prodata[4] = String(userdata.result[0].contribution)
-            self.prodata[5] = userdata.result[0].titlePhoto
-//            print(self.prodata)
-        
+            self.curr_rank = userdata.result[0].rank
+            self.userName.text = userdata.result[0].handle
+            self.rankName.text = userdata.result[0].rank
+            self.currentRating.text = String(userdata.result[0].rating)
+            self.maxRating.text = String(userdata.result[0].maxRating)
+            self.contribution.text = String(userdata.result[0].contribution)
+            
+            self.userName.textColor = UIColor(named: userdata.result[0].rank)
+            self.rankName.textColor = UIColor(named: userdata.result[0].rank)
+            self.currentRating.textColor = UIColor(named: userdata.result[0].rank)
+            self.maxRating.textColor = UIColor(named: userdata.result[0].maxRank)
+            
+            let url = URL(string: userdata.result[0].titlePhoto)
+            let data = try? Data(contentsOf: url!)
+
+            if let imageData = data {
+                let image = UIImage(data: imageData)
+                self.dp.image = image
+            }
+            
+
         }
     }
     
@@ -66,23 +103,55 @@ extension visResController: aboutUserDelegate {
 extension visResController: contestDataDelegate {
     
     func didUpdateData(_ aboutcontest: aboutContest, contestdata: contestData) {
-        
-        for cont in contestdata.result {
+       
+        DispatchQueue.main.async {
             
-            let epochTime = TimeInterval(cont.ratingUpdateTimeSeconds)
+            for i in 0..<contestdata.result.count {
+            
+            let epochTime = TimeInterval(contestdata.result[i].ratingUpdateTimeSeconds)
             let date = Date(timeIntervalSince1970: epochTime)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "LLLL"
+            let monthString = dateFormatter.string(from: date)
+            self.months.append(monthString)
             
-            cntdate.append(date)
-            cntrating.append(cont.newRating)
+            let val = ChartDataEntry(x: Double(i), y: Double(contestdata.result[i].newRating))
+            
+            self.lineChartEntry.append(val)
+            
+            
+            }
+            
+            let set = LineChartDataSet(entries: self.lineChartEntry, label: "Rating")
+            
+            set.drawCirclesEnabled = true
+            set.lineWidth = 2
+            set.mode = .cubicBezier
+            set.setColor(UIColor(named: self.curr_rank)!)
+            set.setCircleColor(UIColor(named: self.curr_rank)!) // our circle will be dark red
+            set.drawHorizontalHighlightIndicatorEnabled = false
+            set.drawVerticalHighlightIndicatorEnabled = false
+            set.circleRadius = 3.0
+            set.drawCircleHoleEnabled = true
+            
+            let data = LineChartData(dataSet: set)
+            
+            data.setDrawValues(false)
+            
+            self.ratingGraph.data = data
+            self.ratingGraph.rightAxis.enabled = false
+            self.ratingGraph.xAxis.drawGridLinesEnabled = false
+            self.ratingGraph.xAxis.labelPosition = .bottom
+            self.ratingGraph.xAxis.valueFormatter = IndexAxisValueFormatter(values: self.months)
             
         }
         
-        for date in cntdate {
-            print(date)
-        }
-        for rating in cntrating {
-            print(rating)
-        }
+//        for date in cntdate {
+//            print(date)
+//        }
+//        for rating in cntrating {
+//            print(rating)
+//        }
         
     }
     
