@@ -58,6 +58,9 @@ class visResController: UIViewController {
     var probTags = [String : Int]()
     var tag = [String]()
     var tagcnt = [Int]()
+//    let sortedtags = probTags.sorted(by: { $0.value < $1.value } )
+    
+    
     
     var abtuser = aboutUser()
     var abtcontest = aboutContest()
@@ -435,18 +438,37 @@ extension visResController: problemDataDelegate {
             
             self.problemRatings.data = BarChartData(dataSet: ratset)
             
+            for (tagname, cnt) in self.probTags {
+                self.tag.append(tagname)
+                self.tagcnt.append(cnt)
+            }
+            self.tags.reloadData()
+            
         }
+        
     }
 }
 
 extension visResController:UITableViewDelegate, UITableViewDataSource {
+    
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return probTags.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        
+        
+            
+        let cell:UITableViewCell = (self.tags.dequeueReusableCell(withIdentifier: "tableCell") as UITableViewCell?)!
+        
+        DispatchQueue.main.async {
+                cell.textLabel?.text = "\(self.tag[indexPath.row]): \(self.tagcnt[indexPath.row])"
+        }
+                return cell
+            
     }
     
     
