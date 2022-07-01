@@ -19,6 +19,10 @@ class visResController: UIViewController {
     @IBOutlet weak var maxRating: UILabel!
     @IBOutlet weak var contribution: UILabel!
     
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
+    
     @IBOutlet weak var ratingGraph: LineChartView!
     var lineChartEntry = [ChartDataEntry]()
     var months = [String]()
@@ -71,8 +75,9 @@ class visResController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        activityView.startAnimating()
-//        activityView.hidesWhenStopped = true
+        errorLabel.text=""
+        activitySpinner.startAnimating()
+        
         abtuser.delegate = self
         abtcontest.delegate = self
         abtproblem.delegate = self
@@ -122,15 +127,17 @@ extension visResController: aboutUserDelegate {
             }
             self.check += 1
             
-
+            if(self.check == 3){
+                self.loadingView.isHidden = true
+            }
         }
     }
     
     func didFailWithError(error: Error) {
         DispatchQueue.main.async {
-//            self.errorLabel.text = "User Not Found"
-//            self.activityView.stopAnimating()
-//            self.tableView.isHidden = true
+            self.activitySpinner.stopAnimating()
+            self.activitySpinner.isHidden = true
+            self.errorLabel.text = "User Not Found"
         }
     }
 }
@@ -223,6 +230,10 @@ extension visResController: contestDataDelegate {
             self.ratingGraph.xAxis.valueFormatter = IndexAxisValueFormatter(values: self.months)
             self.ratingGraph.data = data
             self.check += 1
+            
+            if(self.check == 3){
+                self.loadingView.isHidden = true
+            }
         }
     }
 }
@@ -443,7 +454,11 @@ extension visResController: problemDataDelegate {
                 self.tagcnt.append(cnt)
             }
             self.tags.reloadData()
+            self.check += 1
             
+            if(self.check == 3){
+                self.loadingView.isHidden = true
+            }
         }
         
     }
@@ -467,7 +482,7 @@ extension visResController:UITableViewDelegate, UITableViewDataSource {
         DispatchQueue.main.async {
                 cell.textLabel?.text = "\(self.tag[indexPath.row]): \(self.tagcnt[indexPath.row])"
         }
-                return cell
+            return cell
             
     }
     
