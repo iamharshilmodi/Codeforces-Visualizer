@@ -40,14 +40,24 @@ class visResController: UIViewController {
     var langs = [String : Int]()
     var langEntry = [PieChartDataEntry]()
     
-    @IBOutlet weak var problemLevels: HorizontalBarChartView!
-    var levels = [String : Int]()
     
-    @IBOutlet weak var problemRatings: HorizontalBarChartView!
+    @IBOutlet weak var problemLevels: BarChartView!
+    var levels = [String : Int]()
+    var prblev = [String]()
+    var levcnt = [Int]()
+    var levEntry = [BarChartDataEntry]()
+    
+
+    @IBOutlet weak var problemRatings: BarChartView!
     var ratings = [Int : Int]()
+    var prbrating = [Int]()
+    var xrating = [String]()
+    var ratingEntry = [BarChartDataEntry]()
     
     @IBOutlet weak var tags: UITableView!
     var probTags = [String : Int]()
+    var tag = [String]()
+    var tagcnt = [Int]()
     
     var abtuser = aboutUser()
     var abtcontest = aboutContest()
@@ -73,6 +83,9 @@ class visResController: UIViewController {
         
         ratingGraph.backgroundColor = UIColor(named: "Custom_White")
         ratingGraph.animate(xAxisDuration: 3)
+        
+        tags.delegate = self
+        tags.dataSource = self
     }
 
 }
@@ -199,12 +212,13 @@ extension visResController: contestDataDelegate {
             
             data.setDrawValues(false)
             
-            self.ratingGraph.data = data
+            
+            self.ratingGraph.legend.enabled = false
             self.ratingGraph.rightAxis.enabled = false
             self.ratingGraph.xAxis.drawGridLinesEnabled = false
             self.ratingGraph.xAxis.labelPosition = .bottom
             self.ratingGraph.xAxis.valueFormatter = IndexAxisValueFormatter(values: self.months)
-            
+            self.ratingGraph.data = data
             self.check += 1
         }
     }
@@ -220,9 +234,38 @@ extension visResController: problemDataDelegate {
             for i in 0..<problemdata.result.count {
                 
                 var ver = ""
-            
+                let ind = problemdata.result[i].problem.index!
+                
                 if(problemdata.result[i].verdict! == "OK"){
                     ver = "AC"
+                    if(self.langs[problemdata.result[i].programmingLanguage!] != nil){
+                        self.langs[problemdata.result[i].programmingLanguage!]! += 1
+                    }else{
+                        self.langs[problemdata.result[i].programmingLanguage!] = 1
+                    }
+                    
+                    if(self.levels[String(ind.first!)] != nil){
+                        self.levels[String(ind.first!)]! += 1
+                    }else{
+                        self.levels[String(ind.first!)] = 1
+                    }
+                    
+                    if(problemdata.result[i].problem.rating != nil ){
+                        if(self.ratings[problemdata.result[i].problem.rating!] != nil){
+                            self.ratings[problemdata.result[i].problem.rating!]! += 1
+                        }else{
+                            self.ratings[problemdata.result[i].problem.rating!] = 1
+                        }
+                    }
+                      
+                    for tag in problemdata.result[i].problem.tags {
+                        
+                        if(self.probTags[tag!] != nil){
+                            self.probTags[tag!]! += 1
+                        }else{
+                            self.probTags[tag!] = 1
+                        }
+                    }
                 }
                 else if(problemdata.result[i].verdict! == "RUNTIME_ERROR"){
                     ver = "RE"
@@ -250,34 +293,7 @@ extension visResController: problemDataDelegate {
                     self.verdicts[ver]! += 1
                 }
                 
-                if(self.langs[problemdata.result[i].programmingLanguage!] != nil){
-                    self.langs[problemdata.result[i].programmingLanguage!]! += 1
-                }else{
-                    self.langs[problemdata.result[i].programmingLanguage!] = 1
-                }
                 
-                if(self.levels[problemdata.result[i].problem.index!] != nil){
-                    self.levels[problemdata.result[i].problem.index!]! += 1
-                }else{
-                    self.levels[problemdata.result[i].problem.index!] = 1
-                }
-                
-                if(problemdata.result[i].problem.rating != nil ){
-                    if(self.ratings[problemdata.result[i].problem.rating!] != nil){
-                        self.ratings[problemdata.result[i].problem.rating!]! += 1
-                    }else{
-                        self.ratings[problemdata.result[i].problem.rating!] = 1
-                    }
-                }
-                  
-                for tag in problemdata.result[i].problem.tags {
-                    
-                    if(self.probTags[tag!] != nil){
-                        self.probTags[tag!]! += 1
-                    }else{
-                        self.probTags[tag!] = 1
-                    }
-                }
             }
 //            print(self.verdicts)
 //            print(self.langs)
@@ -337,7 +353,100 @@ extension visResController: problemDataDelegate {
             langset.valueTextColor = UIColor (named: "fontColor")!
             langset.yValuePosition = .outsideSlice
             self.languages.data = PieChartData(dataSet: langset)
+            
+            //MARK: Levels graph
+            
+            self.prblev = Array(self.levels.keys).sorted(by: <)
+            
+            self.problemLevels.xAxis.labelPosition = .bottom
+            self.problemLevels.xAxis.drawAxisLineEnabled = true
+            self.problemLevels.xAxis.drawGridLinesEnabled = false
+            self.problemLevels.xAxis.drawLabelsEnabled = true
+//            self.problemLevels.xAxis.labelRotationAngle = -90
+            self.problemLevels.highlightPerTapEnabled = false
+            self.problemLevels.highlightFullBarEnabled = false
+            self.problemLevels.highlightPerDragEnabled = false
+            self.problemLevels.legend.enabled = false
+            self.problemLevels.pinchZoomEnabled = false
+            self.problemLevels.doubleTapToZoomEnabled = false
+            
+            self.problemLevels.xAxis.setLabelCount(self.prblev.count, force: false)
+            
+            self.problemLevels.leftAxis.drawAxisLineEnabled = true
+            self.problemLevels.leftAxis.drawGridLinesEnabled = true
+            self.problemLevels.leftAxis.drawLabelsEnabled = true
+            self.problemLevels.leftAxis.granularityEnabled = true
+            self.problemLevels.leftAxis.granularity = 1.0
+            self.problemLevels.rightAxis.enabled = false
+            
+            
+            
+            for i in 0..<self.prblev.count {
+                self.levEntry.append(BarChartDataEntry(x: Double(i), y: Double(self.levels[self.prblev[i]]!)))
+            }
+            
+            self.problemLevels.xAxis.valueFormatter = IndexAxisValueFormatter(values: self.prblev)
+            
+            let levset = BarChartDataSet(entries: self.levEntry)
+            levset.setColor(UIColor (named: self.curr_rank)!)
+            
+            self.problemLevels.data = BarChartData(dataSet: levset)
+            
+            
+            
+            //MARK: Problem Rating graph
+            
+            self.prbrating = Array(self.ratings.keys).sorted(by: <)
+            
+            self.problemRatings.xAxis.labelPosition = .bottom
+            self.problemRatings.xAxis.drawAxisLineEnabled = true
+            self.problemRatings.xAxis.drawGridLinesEnabled = false
+            self.problemRatings.xAxis.drawLabelsEnabled = true
+            self.problemRatings.xAxis.labelRotationAngle = -90
+            self.problemRatings.highlightPerTapEnabled = false
+            self.problemRatings.highlightFullBarEnabled = false
+            self.problemRatings.highlightPerDragEnabled = false
+            self.problemRatings.legend.enabled = false
+            self.problemRatings.pinchZoomEnabled = false
+            self.problemRatings.doubleTapToZoomEnabled = false
+            
+            self.problemRatings.xAxis.setLabelCount(self.prbrating.count, force: false)
+            
+            self.problemRatings.leftAxis.drawAxisLineEnabled = true
+            self.problemRatings.leftAxis.drawGridLinesEnabled = true
+            self.problemRatings.leftAxis.drawLabelsEnabled = true
+            self.problemRatings.leftAxis.granularityEnabled = true
+            self.problemRatings.leftAxis.granularity = 1.0
+            
+            self.problemRatings.rightAxis.enabled = false
+            
+            
+            
+            for i in 0..<self.prbrating.count {
+                self.ratingEntry.append(BarChartDataEntry(x: Double(i), y: Double(self.ratings[self.prbrating[i]]!)))
+                self.xrating.append(String(self.prbrating[i]))
+            }
+            
+            self.problemRatings.xAxis.valueFormatter = IndexAxisValueFormatter(values: self.xrating)
+            
+            let ratset = BarChartDataSet(entries: self.ratingEntry)
+            ratset.setColor(UIColor (named: self.curr_rank)!)
+            ratset.valueFormatter = DefaultValueFormatter(decimals: 0)
+            
+            self.problemRatings.data = BarChartData(dataSet: ratset)
+            
         }
+    }
+}
+
+extension visResController:UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return probTags.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
     }
     
     
