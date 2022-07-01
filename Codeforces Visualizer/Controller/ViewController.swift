@@ -44,6 +44,7 @@ extension ViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         if let uname = usernameOutlet.text {
+
             self.performSegue(withIdentifier: "visRes", sender: self)
         }
         

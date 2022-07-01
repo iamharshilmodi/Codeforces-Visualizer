@@ -10,6 +10,8 @@ import Charts
 
 class visResController: UIViewController {
     
+    var check = 0
+    
     @IBOutlet weak var dp: UIImageView!
     @IBOutlet weak var rankName: UILabel!
     @IBOutlet weak var userName: UILabel!
@@ -22,15 +24,30 @@ class visResController: UIViewController {
     var months = [String]()
     
     @IBOutlet weak var verdictsGraph: PieChartView!
+//    var verdicts = [String : Int]()
+    var verdicts : [String : Int] = ["AC":0, "WA":0, "MLE":0, "CE":0, "TLE":0,
+                "PARTIAL":0, "CHALLENGED":0, "PE":0, "SKIPPED":0, "RE":0, "ILE":0]
+    
+    var vercol = ["AC":UIColor (named: "AC"), "WA":UIColor (named: "WA"), "MLE":UIColor (named: "MLE")
+                  , "CE":UIColor (named: "CE"), "TLE":UIColor (named: "TLE"), "PARTIAL":UIColor (named: "partial")
+                  , "CHALLENGED":UIColor (named: "challenged"), "PE":UIColor (named: "PE")
+                  , "SKIPPED":UIColor (named: "skipped")
+                  , "RE":UIColor (named: "RE"), "ILE":UIColor (named: "ILE")]
+    var verdictColor = [UIColor]()
+    var verdictEntry = [PieChartDataEntry]()
     
     @IBOutlet weak var languages: PieChartView!
+    var langs = [String : Int]()
+    var langEntry = [PieChartDataEntry]()
     
     @IBOutlet weak var problemLevels: HorizontalBarChartView!
+    var levels = [String : Int]()
     
     @IBOutlet weak var problemRatings: HorizontalBarChartView!
+    var ratings = [Int : Int]()
     
     @IBOutlet weak var tags: UITableView!
-    
+    var probTags = [String : Int]()
     
     var abtuser = aboutUser()
     var abtcontest = aboutContest()
@@ -45,7 +62,7 @@ class visResController: UIViewController {
 //        activityView.hidesWhenStopped = true
         abtuser.delegate = self
         abtcontest.delegate = self
-//        abtproblem.delegate = self
+        abtproblem.delegate = self
         
         abtuser.fetchData(username)
         abtcontest.fetchData(username)
@@ -53,6 +70,7 @@ class visResController: UIViewController {
         
         dp.layer.cornerRadius = dp.frame.height / 2
         dp.clipsToBounds = true
+        
         ratingGraph.backgroundColor = UIColor(named: "Custom_White")
         ratingGraph.animate(xAxisDuration: 3)
     }
@@ -86,6 +104,7 @@ extension visResController: aboutUserDelegate {
                 let image = UIImage(data: imageData)
                 self.dp.image = image
             }
+            self.check += 1
             
 
         }
@@ -122,7 +141,49 @@ extension visResController: contestDataDelegate {
             
             }
             
-            let set = LineChartDataSet(entries: self.lineChartEntry, label: "Rating")
+            let temp = contestdata.result[contestdata.result.count - 1].newRating
+            if(temp < 1200)
+            {
+                self.curr_rank = "newbie"
+            }
+            else if(temp < 1400)
+            {
+                self.curr_rank = "pupil"
+            }
+            else if(temp < 1600)
+            {
+                self.curr_rank = "specialist"
+            }
+            else if(temp < 1900)
+            {
+                self.curr_rank = "expert"
+            }
+            else if(temp < 2100)
+            {
+                self.curr_rank = "candidate master"
+            }
+            else if(temp < 2300)
+            {
+                self.curr_rank = "master"
+            }
+            else if(temp < 2400)
+            {
+                self.curr_rank = "international master"
+            }
+            else if(temp < 2600)
+            {
+                self.curr_rank = "grandmaster"
+            }
+            else if(temp < 3000)
+            {
+                self.curr_rank = "international grandmaster"
+            }
+            else
+            {
+                self.curr_rank = "legendary grandmaster"
+            }
+            
+            let set = LineChartDataSet(entries: self.lineChartEntry, label: self.username)
             
             set.drawCirclesEnabled = true
             set.lineWidth = 2
@@ -131,7 +192,7 @@ extension visResController: contestDataDelegate {
             set.setCircleColor(UIColor(named: self.curr_rank)!) // our circle will be dark red
             set.drawHorizontalHighlightIndicatorEnabled = false
             set.drawVerticalHighlightIndicatorEnabled = false
-            set.circleRadius = 3.0
+            set.circleRadius = 4.0
             set.drawCircleHoleEnabled = true
             
             let data = LineChartData(dataSet: set)
@@ -144,15 +205,140 @@ extension visResController: contestDataDelegate {
             self.ratingGraph.xAxis.labelPosition = .bottom
             self.ratingGraph.xAxis.valueFormatter = IndexAxisValueFormatter(values: self.months)
             
+            self.check += 1
         }
-        
-//        for date in cntdate {
-//            print(date)
-//        }
-//        for rating in cntrating {
-//            print(rating)
-//        }
-        
     }
+}
+
+extension visResController: problemDataDelegate {
+    
+    func didUpdateData(_ aboutproblem: aboutProblem, problemdata: problemData) {
+       
+        
+        DispatchQueue.main.async {
+            
+            for i in 0..<problemdata.result.count {
+                
+                var ver = ""
+            
+                if(problemdata.result[i].verdict! == "OK"){
+                    ver = "AC"
+                }
+                else if(problemdata.result[i].verdict! == "RUNTIME_ERROR"){
+                    ver = "RE"
+                }
+                else if(problemdata.result[i].verdict! == "WRONG_ANSWER"){
+                    ver = "WA"
+                }
+                else if(problemdata.result[i].verdict! == "TIME_LIMIT_EXCEEDED"){
+                    ver = "TLE"
+                }
+                else if(problemdata.result[i].verdict! == "MEMORY_LIMIT_EXCEEDED"){
+                    ver = "MLE"
+                }
+                else if(problemdata.result[i].verdict! == "IDLENESS_LIMIT_EXCEEDED"){
+                    ver = "ILE"
+                }
+                else if(problemdata.result[i].verdict! == "COMPILATION_ERROR"){
+                    ver = "CE"
+                }
+                else if(problemdata.result[i].verdict! == "PRESENTATION_ERROR"){
+                    ver = "PE"
+                }
+                
+                if(self.verdicts[ver] != nil){
+                    self.verdicts[ver]! += 1
+                }
+                
+                if(self.langs[problemdata.result[i].programmingLanguage!] != nil){
+                    self.langs[problemdata.result[i].programmingLanguage!]! += 1
+                }else{
+                    self.langs[problemdata.result[i].programmingLanguage!] = 1
+                }
+                
+                if(self.levels[problemdata.result[i].problem.index!] != nil){
+                    self.levels[problemdata.result[i].problem.index!]! += 1
+                }else{
+                    self.levels[problemdata.result[i].problem.index!] = 1
+                }
+                
+                if(problemdata.result[i].problem.rating != nil ){
+                    if(self.ratings[problemdata.result[i].problem.rating!] != nil){
+                        self.ratings[problemdata.result[i].problem.rating!]! += 1
+                    }else{
+                        self.ratings[problemdata.result[i].problem.rating!] = 1
+                    }
+                }
+                  
+                for tag in problemdata.result[i].problem.tags {
+                    
+                    if(self.probTags[tag!] != nil){
+                        self.probTags[tag!]! += 1
+                    }else{
+                        self.probTags[tag!] = 1
+                    }
+                }
+            }
+//            print(self.verdicts)
+//            print(self.langs)
+//            print(self.levels)
+//            print(self.ratings)
+//            print(self.probTags)
+            
+            //MARK: verdict graph
+            self.verdictsGraph.chartDescription.enabled = false
+            self.verdictsGraph.drawHoleEnabled = false
+            self.verdictsGraph.rotationEnabled = false
+            self.verdictsGraph.isUserInteractionEnabled = false
+            self.verdictsGraph.drawEntryLabelsEnabled = true
+            self.verdictsGraph.entryLabelFont = UIFont (name: "Arial", size: 15)
+            
+            self.verdictsGraph.entryLabelColor = UIColor (named: "fontColor")
+            
+            for (verd, cnt) in self.verdicts {
+                if(cnt>0)
+                {
+                    self.verdictEntry.append(PieChartDataEntry(value: Double(cnt), label: verd))
+                    self.verdictColor.append(self.vercol[verd]!!)
+                }
+            }
+            
+            let verset = PieChartDataSet(entries: self.verdictEntry, label: "")
+            verset.drawValuesEnabled = false
+            verset.colors = self.verdictColor
+            verset.xValuePosition = .outsideSlice
+            verset.useValueColorForLine = false
+            verset.valueLineColor = UIColor (named: "fontColor")!
+            verset.valueTextColor = UIColor (named: "fontColor")!
+            verset.yValuePosition = .outsideSlice
+            self.verdictsGraph.data = PieChartData(dataSet: verset)
+            
+            
+            //MARK: Language graph
+            self.languages.chartDescription.enabled = false
+            self.languages.drawHoleEnabled = false
+            self.languages.rotationEnabled = false
+            self.verdictsGraph.isUserInteractionEnabled = false
+            self.languages.drawEntryLabelsEnabled = true
+            self.languages.entryLabelFont = UIFont (name: "Arial", size: 15)
+            
+            self.languages.entryLabelColor = UIColor (named: "fontColor")
+            
+            for (lang, cnt) in self.langs {
+                    self.langEntry.append(PieChartDataEntry(value: Double(cnt), label: lang))
+            }
+            
+            let langset = PieChartDataSet(entries: self.langEntry, label: "")
+            langset.drawValuesEnabled = false
+            langset.colors = ChartColorTemplates.colorful()
+            langset.xValuePosition = .outsideSlice
+            langset.useValueColorForLine = false
+            langset.valueLineColor = UIColor (named: "fontColor")!
+            langset.valueTextColor = UIColor (named: "fontColor")!
+            langset.yValuePosition = .outsideSlice
+            self.languages.data = PieChartData(dataSet: langset)
+        }
+    }
+    
     
 }
