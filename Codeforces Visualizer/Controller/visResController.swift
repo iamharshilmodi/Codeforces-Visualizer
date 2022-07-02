@@ -31,7 +31,7 @@ class visResController: UIViewController {
 //    var verdicts = [String : Int]()
     var verdicts : [String : Int] = ["AC":0, "WA":0, "MLE":0, "CE":0, "TLE":0,
                 "PARTIAL":0, "CHALLENGED":0, "PE":0, "SKIPPED":0, "RE":0, "ILE":0]
-    
+    var vertotal : Int = 0
     var vercol = ["AC":UIColor (named: "AC"), "WA":UIColor (named: "WA"), "MLE":UIColor (named: "MLE")
                   , "CE":UIColor (named: "CE"), "TLE":UIColor (named: "TLE"), "PARTIAL":UIColor (named: "partial")
                   , "CHALLENGED":UIColor (named: "challenged"), "PE":UIColor (named: "PE")
@@ -39,11 +39,13 @@ class visResController: UIViewController {
                   , "RE":UIColor (named: "RE"), "ILE":UIColor (named: "ILE")]
     var verdictColor = [UIColor]()
     var verdictEntry = [PieChartDataEntry]()
+    var ta :Int = 0
+    var tb :Int = 0
     
     @IBOutlet weak var languages: PieChartView!
     var langs = [String : Int]()
     var langEntry = [PieChartDataEntry]()
-    
+    var langtotal : Int = 0
     
     @IBOutlet weak var problemLevels: BarChartView!
     var levels = [String : Int]()
@@ -252,6 +254,7 @@ extension visResController: problemDataDelegate {
                 
                 if(problemdata.result[i].verdict! == "OK"){
                     ver = "AC"
+                    self.langtotal += 1
                     if(self.langs[problemdata.result[i].programmingLanguage!] != nil){
                         self.langs[problemdata.result[i].programmingLanguage!]! += 1
                     }else{
@@ -305,6 +308,7 @@ extension visResController: problemDataDelegate {
                 
                 if(self.verdicts[ver] != nil){
                     self.verdicts[ver]! += 1
+                    self.vertotal += 1
                 }
                 
                 
@@ -321,26 +325,36 @@ extension visResController: problemDataDelegate {
             self.verdictsGraph.rotationEnabled = false
             self.verdictsGraph.isUserInteractionEnabled = false
             self.verdictsGraph.drawEntryLabelsEnabled = true
-            self.verdictsGraph.entryLabelFont = UIFont (name: "Arial", size: 15)
-            
+            self.verdictsGraph.entryLabelFont = UIFont (name: "Avenir Next", size: 20)
+            self.verdictsGraph.sliceTextDrawingThreshold = 10
             self.verdictsGraph.entryLabelColor = UIColor (named: "fontColor")
+            self.verdictsGraph.legend.font = UIFont (name: "Avenir Next", size: 15)!
             
             for (verd, cnt) in self.verdicts {
                 if(cnt>0)
                 {
                     self.verdictEntry.append(PieChartDataEntry(value: Double(cnt), label: verd))
                     self.verdictColor.append(self.vercol[verd]!!)
+//                    self.ta = Int((Double(cnt) / Double(self.vertotal)) * 100.0)
+//                    print(self.ta)
+//                    self.tb = 5
+//
+//                    if(self.ta < self.tb){
+//                        self.verdictEntry[self.verdictEntry.count - 1].label = ""
+//                    }else{
+//                        self.verdictEntry[self.verdictEntry.count - 1].label = verd
+//                    }
                 }
             }
             
             let verset = PieChartDataSet(entries: self.verdictEntry, label: "")
             verset.drawValuesEnabled = false
             verset.colors = self.verdictColor
-            verset.xValuePosition = .outsideSlice
+            verset.xValuePosition = .insideSlice
             verset.useValueColorForLine = false
             verset.valueLineColor = UIColor (named: "fontColor")!
             verset.valueTextColor = UIColor (named: "fontColor")!
-            verset.yValuePosition = .outsideSlice
+            verset.yValuePosition = .insideSlice
             self.verdictsGraph.data = PieChartData(dataSet: verset)
             
             
@@ -350,18 +364,30 @@ extension visResController: problemDataDelegate {
             self.languages.rotationEnabled = false
             self.verdictsGraph.isUserInteractionEnabled = false
             self.languages.drawEntryLabelsEnabled = true
-            self.languages.entryLabelFont = UIFont (name: "Arial", size: 15)
+            self.languages.entryLabelFont = UIFont (name: "Avenir Next", size: 20)
             
             self.languages.entryLabelColor = UIColor (named: "fontColor")
-            
+            self.languages.sliceTextDrawingThreshold = 20
+            self.languages.legend.font = UIFont (name: "Avenir Next", size: 15)!
             for (lang, cnt) in self.langs {
                     self.langEntry.append(PieChartDataEntry(value: Double(cnt), label: lang))
+//                    self.ta = Int((Double(cnt) / Double(self.langtotal)) * 100.0)
+//                    self.tb = 5
+//
+//                print("new")
+//                    print(self.ta)
+//                    if(self.ta < self.tb){
+//                        self.langEntry[self.langEntry.count - 1].label = ""
+//                    }else{
+//                        self.langEntry[self.langEntry.count - 1].label = lang
+//                    }
             }
             
             let langset = PieChartDataSet(entries: self.langEntry, label: "")
             langset.drawValuesEnabled = false
-            langset.colors = ChartColorTemplates.colorful()
-            langset.xValuePosition = .outsideSlice
+            langset.colors = [self.vercol["AC"], self.vercol["WA"], self.vercol["TLE"], self.vercol["MLE"], self.vercol["ILE"], self.vercol["RE"], self.vercol["CE"]] as! [NSUIColor]
+//            langset.colors = ChartColorTemplates.colorful()
+            langset.xValuePosition = .insideSlice
             langset.useValueColorForLine = false
             langset.valueLineColor = UIColor (named: "fontColor")!
             langset.valueTextColor = UIColor (named: "fontColor")!
