@@ -27,6 +27,7 @@ extension ViewController: UITextFieldDelegate {
         usernameOutlet.endEditing(true)
     }
     
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         usernameOutlet.endEditing(true)
         return true
@@ -43,7 +44,7 @@ extension ViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        if let uname = usernameOutlet.text {
+        if usernameOutlet.text != nil {
 
             self.performSegue(withIdentifier: "visRes", sender: self)
         }
@@ -60,5 +61,3 @@ extension ViewController: UITextFieldDelegate {
     }
 
 }
-
-

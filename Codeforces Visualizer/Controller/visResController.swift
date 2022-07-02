@@ -91,6 +91,7 @@ class visResController: UIViewController {
         dp.layer.cornerRadius = dp.frame.height / 2
         dp.clipsToBounds = true
         
+        
         ratingGraph.backgroundColor = UIColor(named: "Custom_White")
         ratingGraph.animate(xAxisDuration: 3)
         
@@ -119,6 +120,9 @@ extension visResController: aboutUserDelegate {
             self.rankName.textColor = UIColor(named: userdata.result[0].rank)
             self.currentRating.textColor = UIColor(named: userdata.result[0].rank)
             self.maxRating.textColor = UIColor(named: userdata.result[0].maxRank)
+//
+            self.dp.layer.borderWidth = 4
+            self.dp.layer.borderColor = UIColor (named: self.curr_rank)?.cgColor
             
             let url = URL(string: userdata.result[0].titlePhoto)
             let data = try? Data(contentsOf: url!)
