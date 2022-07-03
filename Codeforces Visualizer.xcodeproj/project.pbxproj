@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		294653197B13EF85C28B2013 /* Pods_Codeforces_Visualizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA06B9D12088A51477ED5FE /* Pods_Codeforces_Visualizer.framework */; };
+		5FB75268BAB4B30DD05807E3 /* libPods-Codeforces Visualizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BF49B252CD9D439C3C8A4B /* libPods-Codeforces Visualizer.a */; };
 		C6E99C2228678BE000B06811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C2128678BE000B06811 /* AppDelegate.swift */; };
 		C6E99C2428678BE000B06811 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C2328678BE000B06811 /* SceneDelegate.swift */; };
 		C6E99C2628678BE000B06811 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E99C2528678BE000B06811 /* ViewController.swift */; };
@@ -26,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		A64E447A117C4CC432FD0578 /* Pods-Codeforces Visualizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Codeforces Visualizer.release.xcconfig"; path = "Target Support Files/Pods-Codeforces Visualizer/Pods-Codeforces Visualizer.release.xcconfig"; sourceTree = "<group>"; };
+		A7BF49B252CD9D439C3C8A4B /* libPods-Codeforces Visualizer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Codeforces Visualizer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E99C1E28678BE000B06811 /* Codeforces Visualizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Codeforces Visualizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E99C2128678BE000B06811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6E99C2328678BE000B06811 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +43,6 @@
 		C6E99C472869BD0300B06811 /* aboutProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutProblem.swift; sourceTree = "<group>"; };
 		C6E99C4B2869EF0900B06811 /* visResController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visResController.swift; sourceTree = "<group>"; };
 		C6E99C53286B7C0F00B06811 /* profileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileData.swift; sourceTree = "<group>"; };
-		CDA06B9D12088A51477ED5FE /* Pods_Codeforces_Visualizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Codeforces_Visualizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DE0AC353AB9350FCF8282A /* Pods-Codeforces Visualizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Codeforces Visualizer.debug.xcconfig"; path = "Target Support Files/Pods-Codeforces Visualizer/Pods-Codeforces Visualizer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				294653197B13EF85C28B2013 /* Pods_Codeforces_Visualizer.framework in Frameworks */,
+				5FB75268BAB4B30DD05807E3 /* libPods-Codeforces Visualizer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +125,7 @@
 		EE8656B3D773B244D8FB23E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CDA06B9D12088A51477ED5FE /* Pods_Codeforces_Visualizer.framework */,
+				A7BF49B252CD9D439C3C8A4B /* libPods-Codeforces Visualizer.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,7 +150,6 @@
 				C6E99C1A28678BE000B06811 /* Sources */,
 				C6E99C1B28678BE000B06811 /* Frameworks */,
 				C6E99C1C28678BE000B06811 /* Resources */,
-				51CDDEC7CBA6BECD920B1DC4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,23 +207,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		51CDDEC7CBA6BECD920B1DC4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Codeforces Visualizer/Pods-Codeforces Visualizer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Codeforces Visualizer/Pods-Codeforces Visualizer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Codeforces Visualizer/Pods-Codeforces Visualizer-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9BBDE7F9B1F1565569707012 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

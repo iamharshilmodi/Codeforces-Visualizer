@@ -116,6 +116,19 @@ extension visResController: aboutUserDelegate {
             self.maxRating.text = String(userdata.result[0].maxRating)
             self.contribution.text = String(userdata.result[0].contribution)
             
+            if(userdata.result[0].contribution > 0)
+            {
+                self.contribution.textColor = .green
+            }
+            else if(userdata.result[0].contribution < 0)
+            {
+                self.contribution.textColor = .red
+            }
+            else
+            {
+                self.contribution.textColor = .gray
+            }
+            
             self.userName.textColor = UIColor(named: userdata.result[0].rank)
             self.rankName.textColor = UIColor(named: userdata.result[0].rank)
             self.currentRating.textColor = UIColor(named: userdata.result[0].rank)
