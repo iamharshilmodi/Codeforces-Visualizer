@@ -9,3 +9,6 @@ This is an ios app to view details of different codeforces profiles. You have to
 6. Tags of problems solved 
 
 
+
+https://user-images.githubusercontent.com/75446852/177045227-3bdbb517-a1b6-4959-bea0-4838e61cf0da.mp4
+
