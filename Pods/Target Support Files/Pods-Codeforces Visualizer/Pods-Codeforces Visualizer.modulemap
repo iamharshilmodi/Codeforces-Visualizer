@@ -1,0 +1,6 @@
+module Pods_Codeforces_Visualizer {
+  umbrella header "Pods-Codeforces Visualizer-umbrella.h"
+
+  export *
+  module * { export * }
+}
